@@ -3,9 +3,8 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="HelloWorld">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="EchoChamber">
     <property environment="env"/>
-    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
@@ -13,7 +12,7 @@
         <pathelement location="../../../.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar"/>
         <pathelement location="../../../.p2/pool/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
     </path>
-    <path id="HelloWorld.classpath">
+    <path id="EchoChamber.classpath">
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
@@ -21,6 +20,7 @@
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -35,7 +35,7 @@
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="HelloWorld.classpath"/>
+            <classpath refid="EchoChamber.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
@@ -52,39 +52,9 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="HelloWorld">
-        <java classname="HelloWorld" failonerror="true" fork="yes">
-            <classpath refid="HelloWorld.classpath"/>
-        </java>
-    </target>
-    <target name="org.hamcrest.core_1.3.0.v201303031735.jar">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <jvmarg line="-ea"/>
-            <classpath refid="HelloWorld.classpath"/>
-        </junit>
-    </target>
-    <target name="TestJunit">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="TestJunit" todir="${junit.output.dir}"/>
-            <jvmarg line="-ea"/>
-            <classpath refid="HelloWorld.classpath"/>
-        </junit>
-    </target>
-    <target name="TestRunner">
+    <target name="TestRunner (1)">
         <java classname="TestRunner" failonerror="true" fork="yes">
-            <classpath refid="HelloWorld.classpath"/>
+            <classpath refid="EchoChamber.classpath"/>
         </java>
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
     </target>
 </project>
