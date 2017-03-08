@@ -52,7 +52,7 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="TestRunner (1)">
+    <target name="Test">
         <java classname="TestRunner" failonerror="true" fork="yes">
             <classpath refid="EchoChamber.classpath"/>
         </java>
