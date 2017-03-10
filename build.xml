@@ -19,7 +19,7 @@
     </target>
 
     <target name="run">
-        <java jar="build/jar/HelloWorld.jar" fork="true"/>
+        <java jar="build/jar/HelloWorld.jar"/>
     </target>
 
 </project>
