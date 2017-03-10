@@ -1,2 +1,2 @@
 A Jenkins demo for CMPT470 
-version1
+version2
