@@ -1,4 +1,4 @@
-// print hello world
+// print hello world2
 public class HelloWorld {
 
     public static void main(String[] args) {
