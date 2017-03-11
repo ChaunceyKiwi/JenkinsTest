@@ -33,15 +33,15 @@
 2. Type `Build History Metrics Plugin` and choose `install without restart`.
 
 # Features
-## Automated Testing
+## 1. Automated Testing
 After environment configuration, every time you push your code to the github, Jenkins will run the test automatically.
 
-## Metrics & Trends
+## 2. Metrics & Trends
 For builds which are carried out over a period of time, the plugins of Jenkins will collect data, which are useful to understand your builds and how frequently they fail/pass over time.
 
 In our demo, by clicking `trend` you will see the chart which displays the trends of the builds over time.
 
-## Email notification
+## 3. Email notification
 In our demo, Jenkins will send out an e-mail to the specified recipients when a certain important event occurs, including:
 
 1. Every failed build triggers a new e-mail.
