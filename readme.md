@@ -13,7 +13,7 @@
 5. Save
 
 ## 3. Global Tool Configuration
-1. Choose `Manage Jenkins` , then `Global Tool Configuration`
+1. Choose `Manage Jenkins`, then `Global Tool Configuration`
 2. Find `ant`, set a new name and save
 3. Save
 
@@ -29,7 +29,7 @@
 1. Add Payload URL of the webhook under the UI of the github
 
 ## 6. Install Visualization Plugin
-1. Choose `Manage Plugin`, then `aviliable`
+1. Choose `Manage Plugin`, then `available`
 2. Type `Build History Metrics Plugin` and choose `install without restart`
 
 # Features
